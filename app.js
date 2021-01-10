@@ -86,6 +86,32 @@ const DATA  = [
     }
 ]
 
+function imgPreloader() {
+
+    this.images = new Array();
+  
+    this.addImages = function(images) {
+  
+      var self = this;
+  
+      if (!images) return;
+  
+      if (Array.isArray(images)) {
+        images.forEach(function(ele) {
+          var _image = new Image();
+          _image.src = ele;
+          self.images.push(_image);
+        });
+      }
+    };
+  
+    return this;
+  }
+  
+  /* To use, simply pass in an array of  images */
+  var newImage = new imgPreloader();
+  newImage.addImages(DATA.map(el => el.image));
+
 function play() {
     document.querySelectorAll("audio")[1].play();
     let num = Math.floor(Math.random() * DATA.length);
