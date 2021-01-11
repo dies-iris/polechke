@@ -151,8 +151,7 @@ function toggleMusic () {
 var musicPlaying = true;
 
 function closeModal () {
-    document.querySelector("dialog").close();
-    document.querySelector("dialog").style.display = "none";
+    document.getElementById("modal").style.display = "none";
     document.getElementById("sound").style.display = "block";
     document.querySelector("audio").play();
 }
