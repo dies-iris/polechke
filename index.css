@@ -1,5 +1,6 @@
 body, #modal {
     display: flex;
+    min-height: -webkit-fill-available;
     height: 100vh;
     flex-direction: column;
     flex: 1;
