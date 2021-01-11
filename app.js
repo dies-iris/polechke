@@ -138,15 +138,7 @@ function play() {
 
 }
 
-document.getElementById("closeModal").addEventListener('click', () => {
-    document.querySelector("dialog").close();
-    document.querySelector("dialog").style.display = "none";
-    document.getElementById("sound").style.display = "block";
-    document.querySelector("audio").play();
-});
-var musicPlaying = true;
-document.getElementById("button").addEventListener('click', play);
-document.getElementById("sound").addEventListener('click', () => {
+const toggleMusic = () => {
     if(musicPlaying){
         document.querySelectorAll("audio").forEach(audio => audio.muted = true);
         document.getElementById("sound").style.opacity = .5;
@@ -156,4 +148,24 @@ document.getElementById("sound").addEventListener('click', () => {
         document.getElementById("sound").style.opacity = .9;
         musicPlaying = true;
     }
-});
+}
+var musicPlaying = true;
+
+const closeModal = () => {
+    document.querySelector("dialog").close();
+    document.querySelector("dialog").style.display = "none";
+    document.getElementById("sound").style.display = "block";
+    document.querySelector("audio").play();
+}
+
+document.getElementById("closeModal").addEventListener('click', closeModal);
+document.getElementById("closeModal").addEventListener('tap', closeModal);
+document.getElementById("closeModal").addEventListener('touchstart', closeModal);
+
+document.getElementById("button").addEventListener('click', play);
+document.getElementById("button").addEventListener('tap', play);
+document.getElementById("button").addEventListener('touchstart', play);
+
+document.getElementById("sound").addEventListener('click', toggleMusic);
+document.getElementById("sound").addEventListener('tap', toggleMusic);
+document.getElementById("sound").addEventListener('touchstart', toggleMusic);
