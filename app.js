@@ -110,7 +110,7 @@ function imgPreloader() {
   
   /* To use, simply pass in an array of  images */
   var newImage = new imgPreloader();
-  newImage.addImages(DATA.map(el => el.image));
+  newImage.addImages(DATA.map(function(el){el.image}));
 
 function play() {
     document.querySelectorAll("audio")[1].play();
@@ -121,7 +121,7 @@ function play() {
     target.style.opacity = 1;
     for(k = 0; k <= 3; k++){
         for(let i = 0; i < DATA.length; i++){
-            setTimeout(() => {
+            setTimeout(function() {
                 // console.log(DATA[i].text);
                 target.src=DATA[i].image;
             }, 50 * (i+1) + 50 * k * DATA.length);
@@ -132,26 +132,26 @@ function play() {
             }
         }
     }
-    setTimeout(() => {
+    setTimeout(function() {
         document.getElementById("roulette-message").innerHTML = text;
     },delay)
 
 }
 
-const toggleMusic = () => {
+function toggleMusic () {
     if(musicPlaying){
-        document.querySelectorAll("audio").forEach(audio => audio.muted = true);
+        document.querySelectorAll("audio").forEach(function(audio){audio.muted = true});
         document.getElementById("sound").style.opacity = .5;
         musicPlaying = false;
     } else {
-        document.querySelectorAll("audio").forEach(audio => audio.muted = false);
+        document.querySelectorAll("audio").forEach(function (audio) {audio.muted = false});
         document.getElementById("sound").style.opacity = .9;
         musicPlaying = true;
     }
 }
 var musicPlaying = true;
 
-const closeModal = () => {
+function closeModal () {
     document.querySelector("dialog").close();
     document.querySelector("dialog").style.display = "none";
     document.getElementById("sound").style.display = "block";
