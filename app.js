@@ -1,5 +1,4 @@
-
-const DATA  = [
+var DATA  = [
     {
         image: "./png/001-love.png",
         text: "Кто знает, возможно, сегодня я октрою для себя новое место ! "
@@ -114,13 +113,13 @@ function imgPreloader() {
 
 function play() {
     document.querySelectorAll("audio")[1].play();
-    let num = Math.floor(Math.random() * DATA.length);
-    let target = document.getElementById("roulette");
-    let delay;
-    let text;
+    var num = Math.floor(Math.random() * DATA.length);
+    var target = document.getElementById("rouvarte");
+    var delay;
+    var text;
     target.style.opacity = 1;
     for(k = 0; k <= 3; k++){
-        for(let i = 0; i < DATA.length; i++){
+        for(var i = 0; i < DATA.length; i++){
             setTimeout(function() {
                 // console.log(DATA[i].text);
                 target.src=DATA[i].image;
@@ -133,7 +132,7 @@ function play() {
         }
     }
     setTimeout(function() {
-        document.getElementById("roulette-message").innerHTML = text;
+        document.getElementById("rouvarte-message").innerHTML = text;
     },delay)
 
 }
