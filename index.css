@@ -50,12 +50,91 @@ body, #modal {
   animation: rotation 500s linear infinite;
 }
 
+#background {
+  display: none;
+  position: absolute;
+  opacity: .3;
+  width: 90vw;
+  height: 90vw;
+  top: 50%;
+  left: 50%;
+  /* transform: translate(-50%, -50%); */
+  z-index: -1;
+  background: center / contain url("./mandala.png");
+  animation: rotation2 15s linear infinite;
+}
+
 @keyframes rotation {
   from {
     transform: translate(-50%, -50%) rotate(0);
   }
   to {
     transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes rotation2 {
+  0% {
+    transform: translate(-50%, -50%) rotate(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    transform: translate(-50%, -50%) rotate(-36deg) scale(1.1);
+    opacity: .2;
+  }
+  20% {
+    transform: translate(-50%, -50%) rotate(-72deg) scale(1);
+    opacity: 0;
+  }
+  30% {
+    transform: translate(-50%, -50%) rotate(-108deg) scale(1.1);
+    opacity: .2;
+  }
+  40% {
+    transform: translate(-50%, -50%) rotate(-144deg) scale(1);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(-180deg) scale(1.1);
+    opacity: .2;
+  }
+  60% {
+    transform: translate(-50%, -50%) rotate(-216deg) scale(1);
+    opacity: .3;
+  }
+  70% {
+    transform: translate(-50%, -50%) rotate(-252deg) scale(1.1);
+    opacity: .4;
+  }
+  80% {
+    transform: translate(-50%, -50%) rotate(-288deg) scale(1);
+    opacity: .3;
+  }
+  90% {
+    transform: translate(-50%, -50%) rotate(-324deg) scale(1.1);
+    opacity: .4;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg) scale(1);
+    opacity: .3;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
@@ -72,6 +151,7 @@ body, #modal {
   height: 60px;
   font-size: 1rem;
   text-align: center;
+  opacity: 0;
 }
 
 #sound {
@@ -108,6 +188,10 @@ div {
     0 0 90px rgb(255, 0, 242),
     0 0 100px rgb(255, 0, 242),
     0 0 150px rgb(255, 0, 242);
+}
+
+.flicker {
+  animation: letter-flicker 3s linear infinite;
 }
 
 .button {
@@ -204,56 +288,120 @@ div {
   
   @keyframes letter-flicker {
       2% { 
-      color: rgb(230, 0, 120);
-      text-shadow: 0 0 15px rgb(230, 0, 120);
+        color: #fff;
+        text-shadow:
+          0 0 5px #fff,
+          0 0 10px #fff,
+          0 0 20px #fff,
+          0 0 40px rgb(255, 0, 242),
+          0 0 80px rgb(255, 0, 242),
+          0 0 90px rgb(255, 0, 242),
+          0 0 100px rgb(255, 0, 242),
+          0 0 150px rgb(255, 0, 242);
     }
     3% {
       color: rgba(120, 0, 50, .5);
       text-shadow: none;
     }
     6% {
-      color: rgb(230, 0, 120);
-      text-shadow: 0 0 15px rgb(230, 0, 120);
+      color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px rgb(255, 0, 242),
+    0 0 80px rgb(255, 0, 242),
+    0 0 90px rgb(255, 0, 242),
+    0 0 100px rgb(255, 0, 242),
+    0 0 150px rgb(255, 0, 242);
     }
     9% {
       color: rgba(120, 0, 50, .5);
       text-shadow: none;
     }
     11% {
-      color: rgb(230, 0, 120);
-      text-shadow: 0 0 15px rgb(230, 0, 120);
+      color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px rgb(255, 0, 242),
+    0 0 80px rgb(255, 0, 242),
+    0 0 90px rgb(255, 0, 242),
+    0 0 100px rgb(255, 0, 242),
+    0 0 150px rgb(255, 0, 242);
     }
     14% {
       color: rgba(120, 0, 50, .5);
       text-shadow: none;
     }
     18% {
-      color: rgb(230, 0, 120);
-      text-shadow: 0 0 15px rgb(230, 0, 120);
+      color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px rgb(255, 0, 242),
+    0 0 80px rgb(255, 0, 242),
+    0 0 90px rgb(255, 0, 242),
+    0 0 100px rgb(255, 0, 242),
+    0 0 150px rgb(255, 0, 242);
     }
     32% {
-      color: rgb(230, 0, 120);
-      text-shadow: 0 0 15px rgb(230, 0, 120);
+      color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px rgb(255, 0, 242),
+    0 0 80px rgb(255, 0, 242),
+    0 0 90px rgb(255, 0, 242),
+    0 0 100px rgb(255, 0, 242),
+    0 0 150px rgb(255, 0, 242);
     }
     33% {
       color: rgba(120, 0, 50, .5);
       text-shadow: none;
     }
     37% {
-      color: rgb(230, 0, 120);
-      text-shadow: 0 0 15px rgb(230, 0, 120);
+      color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px rgb(255, 0, 242),
+    0 0 80px rgb(255, 0, 242),
+    0 0 90px rgb(255, 0, 242),
+    0 0 100px rgb(255, 0, 242),
+    0 0 150px rgb(255, 0, 242);
     }
     39% {
       color: rgba(120, 0, 50, .5);
       text-shadow: none;
     }
     40% {
-      color: rgb(230, 0, 120);
-      text-shadow: 0 0 15px rgb(230, 0, 120);
+      color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px rgb(255, 0, 242),
+    0 0 80px rgb(255, 0, 242),
+    0 0 90px rgb(255, 0, 242),
+    0 0 100px rgb(255, 0, 242),
+    0 0 150px rgb(255, 0, 242);
     }
     100% {
-      color: rgb(230, 0, 120);
-      text-shadow: 0 0 15px rgb(230, 0, 120);
+      color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px rgb(255, 0, 242),
+    0 0 80px rgb(255, 0, 242),
+    0 0 90px rgb(255, 0, 242),
+    0 0 100px rgb(255, 0, 242),
+    0 0 150px rgb(255, 0, 242);
     }
   }
   
@@ -321,5 +469,17 @@ div {
       border: 3px solid rgb(0, 180, 230);
       box-shadow: 0 0 15px -1px rgb(0, 180, 230), 
       0 0 12px -1px rgb(0, 180, 230) inset;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    #main::before {
+      width: 160vw;
+      height: 160vw;
+    }
+
+    #background {
+      width: 200vw;
+      height: 200vw;
     }
   }

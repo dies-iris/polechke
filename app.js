@@ -85,55 +85,69 @@ var DATA  = [
     }
 ]
 
-function imgPreloader() {
+// function imgPreloader() {
 
-    this.images = new Array();
+//     this.images = new Array();
   
-    this.addImages = function(images) {
+//     this.addImages = function(images) {
   
-      var self = this;
+//       var self = this;
   
-      if (!images) return;
+//       if (!images) return;
   
-      if (Array.isArray(images)) {
-        images.forEach(function(ele) {
-          var _image = new Image();
-          _image.src = ele;
-          self.images.push(_image);
-        });
-      }
-    };
+//       if (Array.isArray(images)) {
+//         images.forEach(function(ele) {
+//           var _image = new Image();
+//           _image.src = ele;
+//           self.images.push(_image);
+//         });
+//       }
+//     };
   
-    return this;
-  }
+//     return this;
+//   }
   
-  /* To use, simply pass in an array of  images */
-  var newImage = new imgPreloader();
-  newImage.addImages(DATA.map(function(el){el.image}));
+//   /* To use, simply pass in an array of  images */
+//   var newImage = new imgPreloader();
+//   newImage.addImages(DATA.map(function(el){el.image}));
 
 function play() {
-    document.querySelectorAll("audio")[1].play();
     var num = Math.floor(Math.random() * DATA.length);
     var target = document.getElementById("roulette");
-    var delay;
-    var text;
-    target.style.opacity = 1;
-    for(k = 0; k <= 3; k++){
-        for(var i = 0; i < DATA.length; i++){
-            setTimeout(function() {
-                // console.log(DATA[i].text);
-                target.src=DATA[i].image;
-            }, 50 * (i+1) + 50 * k * DATA.length);
-            if(k === 3 && i === num){ 
-                delay = 50 * (i+1) + 50 * k * DATA.length;
-                text = DATA[i].text;
-                break;
-            }
-        }
+    var message = document.getElementById("roulette-message");
+    var delay = 3000;
+    
+    document.getElementById("background").style.display = "block";
+    console.log(target.src);
+    console.log(!target.src.includes(".png"));
+    if(target.src.includes(".png")){
+        target.style.animation = "fadeOut 500ms forwards";
     }
+    message.style.animation = 'fadeOut 500ms forwards';
+    document.querySelectorAll("audio")[1].play();
+    
+    // for(k = 0; k <= 3; k++){
+    //     for(var i = 0; i < DATA.length; i++){
+    //         setTimeout(function() {
+    //             // console.log(DATA[i].text);
+    //             target.src=DATA[i].image;
+    //         }, 50 * (i+1) + 50 * k * DATA.length);
+    //         if(k === 3 && i === num){ 
+    //             delay = 50 * (i+1) + 50 * k * DATA.length;
+    //             text = DATA[i].text;
+    //             break;
+    //         }
+    //     }
+    // }
     setTimeout(function() {
-        document.getElementById("roulette-message").innerHTML = text;
-    },delay)
+        
+        document.getElementById("background").style.display = "none";
+        message.innerHTML = DATA[num].text;
+        target.src = DATA[num].image;
+        target.style.animation = "fadeIn 500ms forwards";
+        message.style.animation = "fadeIn 500ms forwards";
+
+    }, delay)
 
 }
 
@@ -157,10 +171,10 @@ function closeModal () {
 }
 
 document.getElementById("closeModal").addEventListener('click', closeModal, false);
-document.getElementById("closeModal").addEventListener('touchstart', closeModal, false);
+document.getElementById("closeModal").addEventListener('tap', closeModal, false);
 
 document.getElementById("button").addEventListener('click', play, false);
-document.getElementById("button").addEventListener('touchstart', play, false);
+document.getElementById("button").addEventListener('tap', play, false);
 
 document.getElementById("sound").addEventListener('click', toggleMusic, false);
-document.getElementById("sound").addEventListener('touchstart', toggleMusic, false);
+document.getElementById("sound").addEventListener('tap', toggleMusic, false);
