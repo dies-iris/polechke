@@ -158,14 +158,11 @@ const closeModal = () => {
     document.querySelector("audio").play();
 }
 
-document.getElementById("closeModal").addEventListener('click', closeModal);
-document.getElementById("closeModal").addEventListener('tap', closeModal);
-document.getElementById("closeModal").addEventListener('touchstart', closeModal);
+document.getElementById("closeModal").addEventListener('click', closeModal, false);
+document.getElementById("closeModal").addEventListener('touchstart', closeModal, false);
 
-document.getElementById("button").addEventListener('click', play);
-document.getElementById("button").addEventListener('tap', play);
-document.getElementById("button").addEventListener('touchstart', play);
+document.getElementById("button").addEventListener('click', play, false);
+document.getElementById("button").addEventListener('touchstart', play, false);
 
-document.getElementById("sound").addEventListener('click', toggleMusic);
-document.getElementById("sound").addEventListener('tap', toggleMusic);
-document.getElementById("sound").addEventListener('touchstart', toggleMusic);
+document.getElementById("sound").addEventListener('click', toggleMusic, false);
+document.getElementById("sound").addEventListener('touchstart', toggleMusic, false);
