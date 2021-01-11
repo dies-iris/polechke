@@ -114,7 +114,7 @@ function imgPreloader() {
 function play() {
     document.querySelectorAll("audio")[1].play();
     var num = Math.floor(Math.random() * DATA.length);
-    var target = document.getElementById("rouvarte");
+    var target = document.getElementById("roulette");
     var delay;
     var text;
     target.style.opacity = 1;
@@ -132,7 +132,7 @@ function play() {
         }
     }
     setTimeout(function() {
-        document.getElementById("rouvarte-message").innerHTML = text;
+        document.getElementById("roulette-message").innerHTML = text;
     },delay)
 
 }
